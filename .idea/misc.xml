@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/DAM007/AndroidStudioProjects/BookCita/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DAM011/AndroidStudioProjects/BookCita/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1735" />
+        <entry key="..\:/Users/DAM011/AndroidStudioProjects/BookCita/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1735" />
+        <entry key="..\:/Users/DAM011/AndroidStudioProjects/BookCita/app/src/main/res/drawable/sahpe_button03.xml" value="0.285" />
+        <entry key="..\:/Users/DAM011/AndroidStudioProjects/BookCita/app/src/main/res/layout/activity_ajout_manuel_livre.xml" value="0.33" />
         <entry key="..\:/Users/DAM011/AndroidStudioProjects/BookCita/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
       </map>
     </option>

@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookCita">
         <activity
-            android:name=".AjoutManuelLivre"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".AjoutManuelLivre"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
