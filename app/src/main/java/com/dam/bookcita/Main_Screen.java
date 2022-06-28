@@ -2,6 +2,7 @@ package com.dam.bookcita;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,22 +22,17 @@ public class Main_Screen extends AppCompatActivity {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(Main_Screen.this,LoginActivity.class));
             }
         });
         //handle skipBtn click, start continue without login screen
         binding.skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(Main_Screen.this,
+                        DashboardUserActivity.class));
 
             }
         });
     }
 }
-
-
-
-
-
-    }
-            }

@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity {
                 //start main screen
                 startActivity(new Intent(SplashActivity.this,Main_Screen.class));
                 finish();// finish this activity
-l
+
 
             }
         },2000);//mean 2 seconds
