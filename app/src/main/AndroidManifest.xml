@@ -13,23 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
-            android:name=".DashboardAdminActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DashboardUserActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="false" />
         <activity
-            android:name=".Main_Screen"
+            android:name=".SearchBookByKeywordActivity"
             android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainScreen"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
@@ -37,7 +37,7 @@
             android:name=".RecupererLivreISBN"
             android:exported="false" />
         <activity
-            android:name=".SearchBookByKeywordActivity"
+            android:name=".DashboardAdminActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

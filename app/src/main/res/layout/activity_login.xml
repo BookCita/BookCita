@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/forgotTv"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/shape_button01"
+                android:backgroundTint="#8c7b75"
                 android:text="Login"
                 android:textColor="@color/white" />
         </RelativeLayout>

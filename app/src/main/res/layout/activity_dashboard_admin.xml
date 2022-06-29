@@ -22,14 +22,15 @@
             android:text="Dashboard Admin"
             android:textStyle="bold"
             android:textColor="@color/black"/>
+
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/titleTv"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTv"
+            android:layout_centerHorizontal="true"
             android:text="abc@exemple.com"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <ImageButton
             android:id="@+id/logoutBtn"
