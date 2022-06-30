@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 import com.dam.bookcita.databinding.ActivityDashboardAdminBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,11 +26,10 @@ public class DashboardAdminActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         checkUser();
         // handle click logout
-        binding.logoutBtn.setOnClickListener(new View.OnClickListener() {
+        binding.logoutBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
-
             }
         });
     }
