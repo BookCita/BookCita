@@ -1,10 +1,10 @@
 package com.dam.bookcita;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Splash extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class Splash extends AppCompatActivity {
                                 .withEndAction(new Runnable() {
                                     @Override
                                     public void run() {
-                                        startActivity(new Intent(Splash.this, AjoutCitationActivity.class));
+                                        startActivity(new Intent(Splash.this, MainActivity.class));
                                     }
                                 })
                                 .start();
