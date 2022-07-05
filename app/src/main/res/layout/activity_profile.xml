@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/profileIv"
         android:layout_marginTop="8dp"
-        android:text="Full Name"
+        android:text="Nom complet"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameTv"
-        android:text="abc@example.com"
+        android:text="abc@exemple.com"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:textSize="12sp"/>
@@ -109,7 +109,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Account"
+                android:text="Compte"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -119,7 +119,7 @@
                 android:id="@+id/accountTypeTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User"
+                android:text="Utilisateur"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="12sp"/>
@@ -137,7 +137,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Member"
+                android:text="Membre"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -147,7 +147,7 @@
                 android:id="@+id/memberDateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12/12/2021"
+                android:text="28/07/2022"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="12sp"/>
@@ -165,7 +165,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favorite Books"
+                android:text="Livres préférés"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -175,7 +175,7 @@
                 android:id="@+id/favoriteBookCountTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="142"
+                android:text="111"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="12sp"/>
@@ -193,7 +193,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Account Status"
+                android:text="Statut du compte"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -203,7 +203,7 @@
                 android:id="@+id/accountStatusTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Not Verified"
+                android:text="Non vérifié"
                 android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="12sp"/>
@@ -225,7 +225,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view1"
-        android:text="Favorite Books"
+        android:text="Livres préférés"
         android:padding="5dp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -236,6 +236,6 @@
         android:layout_height="match_parent"
         android:layout_below="@id/favoriteBooksLabelTv"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/row_pdf_favorite"/>
+        tools:listitem="@layout/row_pdf_favorite" />
 
 </RelativeLayout>

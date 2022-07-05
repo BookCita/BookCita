@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/profileIv"
-            android:text="Person Name"
+            android:text="Nom de la personne"
             android:layout_toStartOf="@id/dateTv"
             android:textColor="@color/black"
             android:textSize="16sp"/>
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="5dp"
-            android:text="dd/MM/yyyy"
+            android:text="JJ/MM/AAAA"
             android:textColor="@color/gray02"
             android:textSize="12sp"/>
 
@@ -55,7 +55,7 @@
             android:layout_toEndOf="@id/profileIv"
             android:layout_below="@id/nameTv"
             android:layout_marginTop="5dp"
-            android:text="The actual comment added by some user."
+            android:text="Le commentaire actuel ajouté par un utilisateur."
             android:textColor="@color/gray02"
             android:textSize="12sp"/>
 

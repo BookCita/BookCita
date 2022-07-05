@@ -22,7 +22,7 @@
         android:layout_below="@id/iconIv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text="Welcome to Book App"
+        android:text="Bienvenue dans BookCita"
         android:textColor="@color/black"
         android:textSize="16sp"/>
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/skipBtn"
         android:layout_marginBottom="10dp"
-        android:text="Login"
+        android:text="Connectez-vous"
         android:background="@drawable/shape_button01"
         android:textColor="@color/white"/>
 
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/shape_button02"
-        android:text="Continue Without Login"
+        android:text="Continuer sans connexion"
         android:textColor="@color/black"/>
 
 </RelativeLayout>

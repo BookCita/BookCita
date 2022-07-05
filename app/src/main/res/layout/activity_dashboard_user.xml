@@ -30,7 +30,7 @@
             android:layout_marginTop="8dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:text="Dashboard User"
+            android:text="Compte Utilisateur"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 
@@ -40,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@id/titleTv"
             android:layout_height="wrap_content"
-            android:text="abc@example.com"
+            android:text="abc@exemple.com"
             android:textColor="@color/black"/>
 
         <ImageButton

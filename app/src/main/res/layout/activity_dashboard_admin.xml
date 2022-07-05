@@ -27,21 +27,21 @@
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:text="Dashboard Admin"
-            android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="Compte Administrateur"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/titleTv"
             android:layout_height="wrap_content"
-            android:text="abc@example.com"
-            android:textColor="@color/white"/>
+            android:layout_below="@id/titleTv"
+            android:layout_centerHorizontal="true"
+            android:text="abc@exemple.com"
+            android:textColor="@color/white" />
 
         <ImageButton
             android:id="@+id/logoutBtn"
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbarRl"
-        android:hint="Search"
+        android:hint="Rechercher"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
@@ -75,11 +75,14 @@
         android:id="@+id/categoriesRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/row_category"
+        android:layout_above="@id/bottomLl"
         android:layout_below="@id/searchEt"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_above="@id/bottomLl"/>
+        tools:listitem="@layout/row_category" />
 
     <LinearLayout
         android:id="@+id/bottomLl"
@@ -96,7 +99,7 @@
             android:id="@+id/addCategoryBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+ Add Category"
+            android:text="+ Ajouter une catégorie"
             android:layout_weight="1"
             android:layout_marginEnd="10dp"
             android:background="@drawable/shape_button01"

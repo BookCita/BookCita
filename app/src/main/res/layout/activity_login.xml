@@ -27,7 +27,7 @@
             android:layout_below="@id/iconIv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="Please Login"
+            android:text="Veuillez vous connecter"
             android:textColor="@color/white"
             android:fontFamily="sans-serif-condensed"
             android:textSize="28sp"/>
@@ -89,7 +89,7 @@
                     android:background="@drawable/shape_edittext01"
                     android:drawableStart="@drawable/ic_lock_gray"
                     android:drawablePadding="10dp"
-                    android:hint="Password"
+                    android:hint="Mot de passe"
                     android:inputType="textPassword"
                     android:padding="10dp"
                     android:textColor="@color/black"
@@ -106,7 +106,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
-                android:text="Forgot Password?"
+                android:text="Mot de passe oublié?"
                 android:textColor="@color/gray02" />
 
             <!--Login Button-->
@@ -117,8 +117,8 @@
                 android:layout_below="@id/forgotTv"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_button01"
-                android:text="Login"
-                android:textColor="@color/white"/>
+                android:text="connectez-vous"
+                android:textColor="@color/white" />
 
 
         </RelativeLayout>

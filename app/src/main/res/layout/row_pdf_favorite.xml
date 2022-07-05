@@ -44,7 +44,7 @@
             android:layout_toEndOf="@id/pdfRl"
             android:layout_toStartOf="@id/removeFavBtn"
             android:maxLines="1"
-            android:text="Book Title"/>
+            android:text="Titre du livre"/>
 
         <ImageButton
             android:id="@+id/removeFavBtn"
@@ -66,7 +66,7 @@
             android:ellipsize="end"
             android:maxLines="4"
             android:layout_toEndOf="@id/pdfRl"
-            android:text="The Book Description"/>
+            android:text="La description du livre"/>
 
         <TextView
             android:id="@+id/categoryTv"
@@ -76,7 +76,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:maxLines="1"
-            android:text="Category"/>
+            android:text="Catégorie"/>
 
         <TextView
             android:id="@+id/sizeTv"
@@ -98,7 +98,7 @@
             android:layout_toStartOf="@id/categoryTv"
             android:textAlignment="center"
             android:maxLines="1"
-            android:text="dd/MM/yyyy"/>
+            android:text="JJ/MM/AAAA"/>
 
     </RelativeLayout>
 

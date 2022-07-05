@@ -20,31 +20,31 @@
             android:id="@+id/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_white"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_white" />
 
         <!--Title-->
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Books"
-            android:layout_marginTop="8dp"
-            android:textStyle="bold"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/white"/>
+            android:layout_marginTop="8dp"
+            android:text="Livres"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <!--Subtitle/Category of book-->
         <TextView
             android:id="@+id/subTitleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/titleTv"
             android:layout_centerHorizontal="true"
-            android:text="Category"
-            android:textColor="@color/white"
-            android:layout_below="@id/titleTv"/>
+            android:text="Catégorie"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
@@ -60,7 +60,7 @@
         android:background="@color/white"
         android:layout_below="@id/toolbarRl"
         android:padding="10dp"
-        android:hint="Search"
+        android:hint="Rechercher"
         android:textColorHint="@color/gray02"
         android:drawableStart="@drawable/ic_search_gray"
         android:drawablePadding="10dp"

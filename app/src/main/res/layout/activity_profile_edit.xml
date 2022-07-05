@@ -28,7 +28,7 @@
             android:id="@+id/titleTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit Profile"
+            android:text="Modifier le profil"
             android:layout_marginTop="10dp"
             android:textSize="26sp"
             android:textColor="@color/white"
@@ -71,7 +71,7 @@
                 android:drawableStart="@drawable/ic_person_gray"
                 android:drawablePadding="10dp"
                 android:inputType="textPersonName|textCapWords"
-                android:hint="Name"
+                android:hint="Nom"
                 android:textColor="@color/black"
                 android:textColorHint="@color/gray01"/>
 
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/nameTil"
-            android:text="Update"
+            android:text="Mettre à jour"
             android:textColor="@color/white"
             android:background="@drawable/shape_button01"
             android:layout_marginTop="20dp"/>
