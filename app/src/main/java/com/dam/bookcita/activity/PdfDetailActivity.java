@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dam.bookcita.R;
 import com.dam.bookcita.adapter.AdapterComment;
 import com.dam.bookcita.databinding.ActivityPdfDetailBinding;
 import com.dam.bookcita.databinding.DialogCommentAddBinding;

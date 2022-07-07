@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 31
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.dam.bookcita"
         minSdk 21
-        targetSdk 32
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -31,6 +32,7 @@ android {
         viewBinding true
     }
 }
+
 
 dependencies {
 
@@ -55,8 +57,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.android.volley:volley:1.2.1'
-    implementation 'com.github.bumptech.glide:glide:4.13.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
     // Pour utiliser Jackson pour parser en JSO
     // Pour utiliser CameraX
@@ -84,13 +84,11 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:3.0.2'
 
     // library pour le telechargement du fichier pdf
-    implementation'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
+//    implementation 'com.github.mhiew:android-pdf-viewer:3.2.0-beta.1'
 
     //glidee
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
-
-
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
