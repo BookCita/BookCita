@@ -55,23 +55,35 @@
             android:exported="false" />
         <activity
             android:name=".activity.Splash"
-            android:exported="true">
+            android:exported="false"/>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <!-- SV -->
+        <activity android:name=".activity.NoInternetActivity" android:exported="false"/>
+        <activity android:name=".login.ResetPaswordActivity" android:exported="false"/>
+        <activity android:name=".login.ChangePasswordActivity" android:exported="false"/>
+        <activity android:name=".profile.ProfileActivity" android:exported="false"/>
+        <activity android:name=".login.SignupActivity" android:exported="false"/>
+        <activity android:name=".login.LoginActivity" android:exported="false"/>
+
+        <!-- Sonia -->
+        <activity android:name=".loginn.SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="false" />
+        <activity android:name=".loginn.FirstActivity" android:exported="false"/>
+        <activity android:name=".loginn.LoginActivity" android:exported="false"/>
+        <activity android:name=".loginn.RegisterActivity" android:exported="false"/>
+        <activity android:name=".loginn.ForgotPasswordActivity" android:exported="false"/>
+        <activity android:name=".loginn.DashboardUserActivity" android:exported="false"/>
+        <activity android:name=".loginn.DashboardAdminActivity" android:exported="false"/>
 
-        <activity android:name=".activity.NoInternetActivity" android:exported="true"/>
-        <activity android:name=".login.ResetPaswordActivity" android:exported="true"/>
-        <activity android:name=".login.ChangePasswordActivity" android:exported="true"/>
-        <activity android:name=".profile.ProfileActivity" android:exported="true"/>
-        <activity android:name=".login.SignupActivity" android:exported="true"/>
-        <activity android:name=".login.LoginActivity" android:exported="true"/>
+
     </application>
 
 </manifest>

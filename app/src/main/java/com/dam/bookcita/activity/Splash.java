@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.dam.bookcita.R;
-import com.dam.bookcita.login.LoginActivity;
+import com.dam.bookcita.loginn.LoginActivity;
 
 public class Splash extends AppCompatActivity {
 

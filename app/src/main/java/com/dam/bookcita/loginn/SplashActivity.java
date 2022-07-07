@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
         if (firebaseUser == null){
             //user not logged in
             //start main screen
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            startActivity(new Intent(SplashActivity.this, FirstActivity.class));
             finish();//finish this activity
         }
         else {
