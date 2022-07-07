@@ -2,30 +2,22 @@ buildscript {
 
     repositories {
         google()
-    mavenCentral()
+        mavenCentral()
+        jcenter()
     }
 
 
     dependencies {
         classpath 'com.android.tools.build:gradle:7.2.1'
         classpath 'com.google.gms:google-services:4.3.13'
+        classpath 'com.github.barteksc:pdfium-android:1.9.0'
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 allprojects {
     repositories {
-        google()
-        mavenCentral()
-//        jcenter()
-//        maven { url 'https://maven.fabric.io/public' }
-       // maven { url 'https://jitpack.io/%27%7D
-       // }
     }
 }
-/*plugins {
-    id 'com.android.application' version '7.2.1' apply false
-    id 'com.android.library' version '7.2.1' apply false
-}*/
 
 task clean(type: Delete) {
     delete rootProject.buildDir

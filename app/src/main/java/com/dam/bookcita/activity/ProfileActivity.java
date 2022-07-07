@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.dam.bookcita.R;
 import com.dam.bookcita.adapter.AdapterPdfFavorite;
 import com.dam.bookcita.databinding.ActivityProfileBinding;
 import com.dam.bookcita.model.ModelPdf;

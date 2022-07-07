@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background=""
+    android:background="@color/secondary_color"
     tools:context=".loginn.SplashActivity">
 
     <ImageView
+        android:id="@+id/ivSplash"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/logo_bookcita"/>
