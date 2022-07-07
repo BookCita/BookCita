@@ -1,142 +1,182 @@
 package com.dam.bookcita.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.dam.bookcita.R;
 import com.dam.bookcita.activity.MainActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
+import com.dam.bookcita.databinding.ActivityLoginBinding;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import com.dam.bookcita.activity.NoInternetActivity;
-import com.dam.bookcita.R;
-import com.dam.bookcita.common.Util;
 
 public class LoginActivity extends AppCompatActivity {
 
-    //========== VARIABLES ET INITIALISATION ==========//
-    //1 Variables globales
-    private TextInputEditText etEmail, etPassword;
-    private String email, password;
+    //view binding
+    private ActivityLoginBinding binding;
 
-    //9 Ajout de la vue de la progressBar
-    private View progressBar;
+    //firebase auth
+    private FirebaseAuth firebaseAuth;
 
-    //2 Méthode initUI pour faire le lien entre le design et le code
-    public void initUI() {
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
+    //progress dialog
+    private ProgressDialog progressDialog;
 
-        //9.1 Initialisation de la progressBar
-        progressBar = findViewById(R.id.progressBar);
-    }
-    //========== END VARIABLES ET INITIALISATION ==========//
+    private EditText passwordEt ,emailEt;
+    private Button loginBtn;
+    private TextView forgotTv,noAccountTv;
 
-    //========== MÉTHODES ==========//
-    //4 Méthode pour la gestion du clic sur le bouton login
-    public void btnLoginClick(View v) {
-        //4.1 Récupération de l'email et du password
-        email = etEmail.getText().toString().trim();
-        password = etPassword.getText().toString().trim();
 
-        //4.2 Vérification du remplissage des champs email et password
-        if (email.equals("")) {
-            etEmail.setError(getString(R.string.enter_email));
-        } else if (password.equals("")) {
-            etPassword.setError(getString(R.string.enter_password));
-        } else { // On se connecte
-            //10 Ajout de la vérification de la connection internet
-            if (Util.connectionAvailable(this)) // Si la connexion fonctionne
-            { // Alors on exécute la méthode
-                //9.2 Si la connexion se fait alors on affiche la progressBar
-                progressBar.setVisibility(View.VISIBLE);
-                //4.3 Connexion à authenticator
-                //TODO Renvoyer vers FirebaseConstants
-                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-                firebaseAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                //8.3 Que la connexion se fasse ou non on fait disparaître la progressBar
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    //4.4 Ajout du lien vers mainActivity si l'utilisateur est bien connecté
-                                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                    //4.5 Utilisation de finish() pour fermer l'activité présente
-                                    finish();
-                                } else {
-                                    //4.6 Affichage de l'erreur de connexion, il est possible de
-                                    // personnaliser, manuelement, le message en fonction du type d'erreur
-                                    Toast.makeText(LoginActivity.this,
-                                            getString(R.string.login_failed) + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-                //10.1 Sinon
-            } else {
-                startActivity(new Intent(LoginActivity.this, NoInternetActivity.class));
-            }
-        }
-    }
 
-    //5 Ajout du bouton reset password
-    public void btnResetPasswordClick(View v) {
-        startActivity(new Intent(LoginActivity.this, ResetPaswordActivity.class));
-    }
-
-    //6 Gestion du clic sur SignUp
-    public void btnSignupClick(View v) {
-        startActivity(new Intent(this, SignupActivity.class));
-    }
-
-    //7.0 Ajout du bouton send à la place du retour chariot du keyboard
-    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            // Utilisation de actionId qui correspond à l'action ajouter dans le xml
-            switch (actionId){
-                case EditorInfo.IME_ACTION_DONE:
-                    btnLoginClick(v);
-            }
-            return false; // On laisse le return à false pour empêcher le comportement normal du clavier
-        }
-    };
-    //========== END MÉTHODES ==========//
-
-    //========== CYCLES DE VIE ==========//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_login);
-        //3 Appel de la méthode initUI
-        initUI();
+        //binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(R.layout.activity_login);
 
-        //7.1 Association du clic dans le keyboard
-        etPassword.setOnEditorActionListener(editorActionListener);
+
+        loginBtn=findViewById(R.id.loginBtn);
+        forgotTv=findViewById(R.id.forgotTv);
+        passwordEt=findViewById(R.id.passwordEt);
+        emailEt=findViewById(R.id.emailEt);
+        noAccountTv=findViewById(R.id.noAccountTv);
+
+        //init firebase auth
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        //setup progress dialog
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Please wait");
+        progressDialog.setCanceledOnTouchOutside(false);
+
+
+        //handle click, go to register screen
+        noAccountTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //handle click, begin login
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validateData();
+            }
+        });
+
+        //handle click, open forgot password activity
+        forgotTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginActivity.this,ForgotPasswordActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
-   //8 Passer l'utilisateur loggué directement à MainActivity
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
-        if (firebaseUser != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
+    private String email = "", password = "";
+
+    private void validateData() {
+        /*Before loggin, lets do some data validation*/
+
+        //get data
+        email = emailEt.getText().toString().trim();
+        password = passwordEt.getText().toString().trim();
+
+        //validate data
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            //email is either not entered or email pattern is invalid, don't allow to continue in that case
+            Toast.makeText(this, "Invalid email pattern...!", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(password)){
+            //password edit text is empty, must enter password
+            Toast.makeText(this, "Enter password...!", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            //data is validated, begin login
+            loginUser();
         }
     }
-    //========== END CYCLES DE VIE ==========//
+
+    private void loginUser() {
+        //show progress
+        progressDialog.setMessage("Logging In...");
+        progressDialog.show();
+
+        //login user
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        //login success, check if user is user or admin
+                        checkUser();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(Exception e) {
+                        //login failed
+                        progressDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void checkUser() {
+        progressDialog.setMessage("Checking User...");
+
+        // check if user is user or admin from realtime database
+        // get current user
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+        //check in db
+      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(firebaseUser.getUid())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        progressDialog.dismiss();
+                        //get user type
+                        String userType = ""+snapshot.child("userType").getValue();
+                        //check user type
+                      /*  if (userType.equals("user")){
+                            //this is simple user, open user dashboard
+                            startActivity(new Intent(LoginActivity.this, DashboardUserActivity.class));
+                            finish();
+                        }
+                        else if (userType.equals("admin")){
+                            //this is admin, open admin dashboard
+                            startActivity(new Intent(LoginActivity.this, DashboardAdminActivity.class));
+                            finish();
+                        }*/
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+
+                    }
+                });
+    }
 }
